@@ -16,7 +16,7 @@ data class Student(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, unique = true)
-    val id: Long,
+    val id: Long? = null,
     @Column(nullable = false, columnDefinition = "TEXT", name = "full_name")
     val fullName: String,
     @Column(nullable = false, columnDefinition = "TEXT", name = "username")
