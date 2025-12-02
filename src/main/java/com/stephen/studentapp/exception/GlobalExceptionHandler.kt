@@ -26,6 +26,19 @@ class GlobalExceptionHandler {
             )
         )
     }
+
+    @ExceptionHandler(ResourceNotFoundException::class)
+    fun handleResourceNotFound(e: ResourceNotFoundException): ResponseEntity<ErrorResponse> {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+            ErrorResponse(
+                status = HttpStatus.NOT_FOUND.value(),
+                error = HttpStatus.NOT_FOUND.reasonPhrase,
+                message = e.message,
+            )
+        )
+    }
 }
 
 class DuplicateStudentFieldException(message: String?) : RuntimeException(message)
+
+class ResourceNotFoundException(message: String?) : RuntimeException(message)

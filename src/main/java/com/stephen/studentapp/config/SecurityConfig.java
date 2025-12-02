@@ -32,7 +32,6 @@ public class SecurityConfig {
                                 SessionCreationPolicy.IF_REQUIRED
                         )
                 );
-
         return httpSecurity.build();
     }
 }
